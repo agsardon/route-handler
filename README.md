@@ -24,13 +24,15 @@ $routeHandler->routeNames = [
 addAction('controller', function () use ($routeHandler, $dataBag)
 {
     if (! $routeHandler->isValidRoute()) return false;
-    
+
+    // If no controller is specified, register with the {route}-controller.php pattern.
     $routeHandler->addController('view', 'get');
     $routeHandler->addController('add', 'post');
     $routeHandler->addController('edit', 'get');
     $routeHandler->addController('edit', 'post', 'update-controller.php');
     $routeHandler->addController('delete', ['get', 'post]);
 
+    // If no view is specified, register with the {view}-controller.php pattern.
     $controller = $routeHandler->matchController();
     $controller = $controller ? $controller : 'list-controller.php';
     $controllerPath = pluginPath('controllers' . DS . $controller);
