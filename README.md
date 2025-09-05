@@ -29,7 +29,7 @@ addAction('controller', function () use ($routeHandler, $dataBag)
     $routeHandler->addController('add', 'post');
     $routeHandler->addController('edit', 'get');
     $routeHandler->addController('edit', 'post', 'update-controller.php');
-    $routeHandler->addController('delete', 'post');
+    $routeHandler->addController('delete', ['get', 'post]);
 
     $controller = $routeHandler->matchController();
     $controller = $controller ? $controller : 'list-controller.php';
