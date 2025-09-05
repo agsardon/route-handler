@@ -32,7 +32,6 @@ addAction('controller', function () use ($routeHandler, $dataBag)
     $routeHandler->addController('edit', 'post', 'update-controller.php');
     $routeHandler->addController('delete', ['get', 'post]);
 
-    // If no view is specified, register with the {view}-controller.php pattern.
     $controller = $routeHandler->matchController();
     $controller = $controller ? $controller : 'list-controller.php';
     $controllerPath = pluginPath('controllers' . DS . $controller);
@@ -48,6 +47,7 @@ addAction('basic-admin_main_content', function () use ($routeHandler, $dataBag)
 { 
     if (! $routeHandler->isValidRoute()) return false;
 
+    // If no view is specified, register with the {view}-controller.php pattern.
     $routeHandler->addView('view');
     $routeHandler->addView('add');
     $routeHandler->addView('edit');
