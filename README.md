@@ -1,6 +1,6 @@
 # route-handler
 
-a simple helper class to manage routes in ThunderPHP.
+A simple helper class to manage routes in ThunderPHP.
 
 RouteHandler is designed specifically for use in the ThunderPHP framework.
 RouteHandler helps you manage routes without having to parse them manually. Maps route names to routes, and routes to controllers and views, automatically matches routes and controllers, routes and views, validates routes, and handles route prefixes (very useful in views).
