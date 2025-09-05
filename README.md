@@ -1,4 +1,4 @@
-# route-handler
+# RouteHandler
 
 A simple helper class to manage routes in ThunderPHP.
 
