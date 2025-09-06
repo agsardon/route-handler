@@ -200,32 +200,13 @@ class RouteHandler
     {
         $prefixParts = $this->getPrefixParts();
         $urlParts = Request::getURLParts();
-        return $this->matchCommonKeys($prefixParts, $urlParts);
-    }
-
-    /**
-     * Compares two arrays and ensures that common keys match.
-     *
-     * @param array $array1
-     * @param array $array2
-     *
-     * @return bool True if all common keys match, false otherwise.
-     */
-    private function matchCommonKeys($array1, $array2): bool
-    {
-        $commonKeys = array_intersect(array_keys($array1), array_keys($array2));
-
-        if (empty($commonKeys)) {
-            return false;
+        $n = count($prefixParts);
+        $isValid = true;
+        for ($i=0; $i < $n; $i++) { 
+            $part = $urlParts[$i] ?? '';
+            $isValid = $part === $prefixParts[$i];
+            if (! $isValid) break;
         }
-
-        foreach ($commonKeys as $key) {
-            if ($array1[$key] !== $array2[$key]) {
-                return false;
-            }
-        }
-
-        return true;
+        return $isValid;
     }
 }
-
