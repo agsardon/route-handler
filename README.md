@@ -23,7 +23,7 @@ $routeHandler->routeNames = [
 /** route requests to the proper controller */
 addAction('controller', function () use ($routeHandler, $dataBag)
 {
-    if (! $routeHandler->isValidRoute()) redirect('404');
+    if (! $routeHandler->isValidRoute()) return;
 
     // If no controller is specified, register with the {route}-controller.php pattern.
     $routeHandler->addController('view', 'get');
@@ -45,7 +45,7 @@ addAction('controller', function () use ($routeHandler, $dataBag)
 /** add main content (user-manager views) to admin area (basic-admin view) */
 addAction('basic-admin_main_content', function () use ($routeHandler, $dataBag)
 { 
-    if (! $routeHandler->isValidRoute()) redirect('404');
+    if (! $routeHandler->isValidRoute()) return;
 
     // If no view is specified, register with the {view}-controller.php pattern.
     $routeHandler->addView('view');
