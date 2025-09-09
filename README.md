@@ -47,7 +47,7 @@ addAction('basic-admin_main_content', function () use ($routeHandler, $dataBag)
 { 
     if (! $routeHandler->isValidRoute()) return;
 
-    // If no view is specified, register with the {view}-controller.php pattern.
+    // If no view is specified, register with the {view}.php pattern.
     $routeHandler->addView('view');
     $routeHandler->addView('add');
     $routeHandler->addView('edit');
